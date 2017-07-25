@@ -1,4 +1,6 @@
-namespace GildedRose.Console
+using GildedRose.Console.Exceptions;
+
+namespace GildedRose.Console.Models
 {
     public abstract class WowBaseItem
     {

@@ -1,29 +1,55 @@
 using Xunit;
 using GildedRose.Console;
 using System.Collections.Generic;
+using GildedRose.Console.Exceptions;
+using GildedRose.Console.Models;
 
 namespace GildedRose.Tests
 {
-    public class TestAssemblyTests
+    public class ProgramBase
     {
-        //Test builders
+        protected Program App;
 
+        protected void Setup(List<Item> items)
+        {
+            var app = new Program
+            {
+                Items = items
+            };
+
+            App = app;
+        }
+
+        protected Item BuildItem()
+        {
+            return new Item { Name = "TestItem1", SellIn = 10, Quality = 10 };
+        }
+
+        protected Item BuildBrieItem()
+        {
+            return new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 };
+        }
+    }
+
+    public class ProgramTest : ProgramBase
+    {
         [Fact]
         public void BothQualityAndSellinValuesAreLoweredEveryDay()
         {
-            var testItem1 = new Item { Name = "TestItem1", SellIn = 10, Quality = 10 };
-            var testItem2 = new Item { Name = "TestItem1", SellIn = 1, Quality = 50 };
+            var testItem1 = BuildItem();
+            var testItem2 = BuildItem();
 
-            var app = new Program
+            testItem2.Quality = 50;
+            testItem2.SellIn = 1;
+
+            var items = new List<Item>
             {
-                Items = new List<Item>
-                {
-                    testItem1,
-                    testItem2
-                }
+                testItem1,
+                testItem2
             };
 
-            app.UpdateQuality();
+            Setup(items);
+            App.UpdateQuality();
 
             Assert.True(testItem1.Quality < 10);
             Assert.True(testItem1.SellIn < 10);
@@ -82,20 +108,19 @@ namespace GildedRose.Tests
         [Fact]
         public void AgedBrieIncreasesQualityTheOlderItGets()
         {
-            var agedBrie1 = new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 };
-            var agedBrie2 = new Item { Name = "Aged Brie", SellIn = 0, Quality = 10 };
+            var agedBrie1 = BuildBrieItem();
+            var agedBrie2 = BuildBrieItem();
+            agedBrie2.SellIn = 0;
 
-            var app = new Program
+            var items = new List<Item>
             {
-                Items = new List<Item>
-                {
-                    agedBrie1,
-                    agedBrie2,
-                }
+                agedBrie1,
+                agedBrie2
             };
 
-            app.UpdateQuality();
-
+            Setup(items);
+            App.UpdateQuality();
+            
             Assert.True(agedBrie1.Quality > 10);
             Assert.True(agedBrie1.SellIn < 10);
             Assert.True(agedBrie1.Quality == 11);

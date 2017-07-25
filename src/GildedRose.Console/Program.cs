@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
+using GildedRose.Console.Models;
 
 namespace GildedRose.Console
 {
     public class Program
     {
         public IList<Item> Items;
-        public const int MaxQuality = 50;
-        public const int MinQuality = 0;
-
-        public const int BackstagePassSmallQualityIncreaseThreshold = 11;
-        public const int BackstagePassLargeQualityIncreaseThreshold = 6;
 
         static void Main(string[] args)
         {
@@ -47,7 +43,8 @@ namespace GildedRose.Console
                 var wowItem = WowItemFactory.Create(item);
                 wowItem.Update();
 
-                /*var wowItem = new WowItem(item);
+                /* 2nd solution. Also works
+                 * var wowItem = new WowItem(item);
                 wowItem.Update();*/
             }
         }

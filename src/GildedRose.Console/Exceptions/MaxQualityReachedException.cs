@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GildedRose.Console
+namespace GildedRose.Console.Exceptions
 {
     public class MaxQualityReachedException : Exception
     {

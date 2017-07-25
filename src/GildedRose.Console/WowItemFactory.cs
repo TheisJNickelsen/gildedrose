@@ -1,3 +1,5 @@
+using GildedRose.Console.Models;
+
 namespace GildedRose.Console
 {
     public static class WowItemFactory

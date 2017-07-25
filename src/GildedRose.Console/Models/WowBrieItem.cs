@@ -1,4 +1,4 @@
-namespace GildedRose.Console
+namespace GildedRose.Console.Models
 {
     public class WowBrieItem : WowBaseItem
     {
