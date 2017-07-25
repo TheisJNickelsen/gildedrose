@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Models\WowBaseItem.cs" />
     <Compile Include="Models\WowBackstagePassItem.cs" />
+    <Compile Include="Models\WowSulfarasItem.cs" />
     <Compile Include="Models\WowBrieItem.cs" />
     <Compile Include="Models\WowConjuredItem.cs" />
     <Compile Include="Models\WowDefaultItem.cs" />

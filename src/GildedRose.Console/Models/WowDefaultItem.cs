@@ -11,20 +11,14 @@ namespace GildedRose.Console.Models
         {
             if (Quality <= MinQuality) return;
 
-            if (Name != "Sulfuras, Hand of Ragnaros")
-            {
-                Quality = Quality - 1;
-            }
+            Quality = Quality - 1;
         }
 
         protected override void UpdateExpiredItemQuality()
         {
             if (Quality <= MinQuality) return;
 
-            if (Name != "Sulfuras, Hand of Ragnaros")
-            {
-                Quality = Quality - 1;
-            }
+            Quality = Quality - 1;
         }
 
     }

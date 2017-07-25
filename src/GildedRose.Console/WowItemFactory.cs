@@ -9,6 +9,7 @@ namespace GildedRose.Console
             if(ItemIsBrie(item)) return new WowBrieItem(item);
             if(ItemIsConjured(item)) return new WowConjuredItem(item);
             if(ItemIsBackStagePass(item)) return new WowBackstagePassItem(item);
+            if(ItemIsSulfaras(item)) return new WowSulfarasItem(item);
 
             return new WowDefaultItem(item);
         }
@@ -25,6 +26,11 @@ namespace GildedRose.Console
         private static bool ItemIsConjured(Item item)
         {
             return item.Name.Contains("Conjured");
+        }
+
+        private static bool ItemIsSulfaras(Item item)
+        {
+            return item.Name == "Sulfuras, Hand of Ragnaros";
         }
 
     }
