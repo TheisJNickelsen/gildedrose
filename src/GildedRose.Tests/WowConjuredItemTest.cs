@@ -8,8 +8,8 @@ namespace GildedRose.Tests
         [Fact]
         public void ConjuredItemsDegradeInQualityTwiceAsFastAsNormalItems()
         {
-            var conjured1 = new WowConjuredItem(new Item{ Name = "TestItem", SellIn = 10, Quality = 10 });
-            var conjured2 = new WowConjuredItem(new Item { Name = "TestItem", SellIn = 0, Quality = 10 });
+            var conjured1 = new ConjuredItem(new Item{ Name = "TestItem", SellIn = 10, Quality = 10 });
+            var conjured2 = new ConjuredItem(new Item { Name = "TestItem", SellIn = 0, Quality = 10 });
 
             conjured1.Update();
             conjured2.Update();

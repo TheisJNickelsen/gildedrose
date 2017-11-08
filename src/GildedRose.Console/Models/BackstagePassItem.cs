@@ -1,8 +1,8 @@
 namespace GildedRose.Console.Models
 {
-    public class WowBackstagePassItem : WowBaseItem
+    public class BackstagePassItem : BaseItem
     {
-        public WowBackstagePassItem(Item item)
+        public BackstagePassItem(Item item)
         {
             Item = item;
         }
@@ -36,5 +36,9 @@ namespace GildedRose.Console.Models
             Quality = Quality - Quality;
         }
 
+        protected override void UpdateExpirationDays()
+        {
+            SellIn = SellIn - 1;
+        }
     }
 }

@@ -1,8 +1,8 @@
 namespace GildedRose.Console.Models
 {
-    public class WowConjuredItem : WowBaseItem
+    public class ConjuredItem : BaseItem
     {
-        public WowConjuredItem(Item item)
+        public ConjuredItem(Item item)
         {
             Item = item;
         }
@@ -19,6 +19,11 @@ namespace GildedRose.Console.Models
             if (Quality <= MinQuality) return;
 
             Quality = Quality - 2;
+        }
+
+        protected override void UpdateExpirationDays()
+        {
+            SellIn = SellIn - 1;
         }
 
     }

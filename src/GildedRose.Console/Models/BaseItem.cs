@@ -2,7 +2,7 @@ using GildedRose.Console.Exceptions;
 
 namespace GildedRose.Console.Models
 {
-    public abstract class WowBaseItem
+    public abstract class BaseItem
     {
         public const int MaxQuality = 50;
         public const int MinQuality = 0;
@@ -30,13 +30,8 @@ namespace GildedRose.Console.Models
         }
         protected abstract void UpdateItemQuality();
         protected abstract void UpdateExpiredItemQuality();
-        private void UpdateNumberOfDaysBeforeExpiration()
-        {
-            if (Name != "Sulfuras, Hand of Ragnaros")
-            {
-                SellIn = SellIn - 1;
-            }
-        }
+
+        protected abstract void UpdateExpirationDays();
 
         private void MinQualityCheck()
         {
@@ -64,7 +59,7 @@ namespace GildedRose.Console.Models
 
             UpdateItemQuality();
 
-            UpdateNumberOfDaysBeforeExpiration();
+            UpdateExpirationDays();
 
             if (ItemIsExpired())
             {

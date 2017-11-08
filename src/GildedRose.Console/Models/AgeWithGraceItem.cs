@@ -1,8 +1,8 @@
 namespace GildedRose.Console.Models
 {
-    public class WowBrieItem : WowBaseItem
+    public class AgeWithGraceItem : BaseItem
     {
-        public WowBrieItem(Item item)
+        public AgeWithGraceItem(Item item)
         {
             Item = item;
         }
@@ -21,6 +21,11 @@ namespace GildedRose.Console.Models
             {
                 Quality = Quality + 1;
             }
+        }
+
+        protected override void UpdateExpirationDays()
+        {
+            SellIn = SellIn - 1;
         }
 
     }

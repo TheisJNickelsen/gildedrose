@@ -4,14 +4,14 @@ namespace GildedRose.Console
 {
     public static class WowItemFactory
     {
-        public static WowBaseItem Create(Item item)
+        public static BaseItem Create(Item item)
         {
-            if(ItemIsBrie(item)) return new WowBrieItem(item);
-            if(ItemIsConjured(item)) return new WowConjuredItem(item);
-            if(ItemIsBackStagePass(item)) return new WowBackstagePassItem(item);
-            if(ItemIsSulfaras(item)) return new WowSulfarasItem(item);
+            if(ItemIsBrie(item)) return new AgeWithGraceItem(item);
+            if(ItemIsConjured(item)) return new ConjuredItem(item);
+            if(ItemIsBackStagePass(item)) return new BackstagePassItem(item);
+            if(ItemIsSulfaras(item)) return new LegendaryItem(item);
 
-            return new WowDefaultItem(item);
+            return new DefaultItem(item);
         }
 
         private static bool ItemIsBrie(Item item)

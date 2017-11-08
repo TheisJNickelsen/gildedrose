@@ -1,8 +1,8 @@
 namespace GildedRose.Console.Models
 {
-    public class WowDefaultItem : WowBaseItem
+    public class DefaultItem : BaseItem
     {
-        public WowDefaultItem(Item item)
+        public DefaultItem(Item item)
         {
             Item = item;
         }
@@ -19,6 +19,11 @@ namespace GildedRose.Console.Models
             if (Quality <= MinQuality) return;
 
             Quality = Quality - 1;
+        }
+
+        protected override void UpdateExpirationDays()
+        {
+            SellIn = SellIn - 1;
         }
 
     }

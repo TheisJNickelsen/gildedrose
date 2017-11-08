@@ -1,8 +1,8 @@
 namespace GildedRose.Console.Models
 {
-    public class WowSulfarasItem : WowBaseItem
+    public class LegendaryItem : BaseItem
     {
-        public WowSulfarasItem(Item item)
+        public LegendaryItem(Item item)
         {
             Item = item;
         }
@@ -17,5 +17,9 @@ namespace GildedRose.Console.Models
             Quality = Quality;
         }
 
+        protected override void UpdateExpirationDays()
+        {
+            SellIn = SellIn;
+        }
     }
 }

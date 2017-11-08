@@ -42,10 +42,6 @@ namespace GildedRose.Console
             {
                 var wowItem = WowItemFactory.Create(item);
                 wowItem.Update();
-
-                /* 2nd solution. Also works
-                 * var wowItem = new WowItem(item);
-                wowItem.Update();*/
             }
         }
     }
